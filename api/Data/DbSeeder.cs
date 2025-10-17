@@ -4,9 +4,8 @@ using api.models;
 
 public static class DbSeeder
 {
-   
    // Intègre des données d'origine dans la bases de données
-    public static async Task SeedAsync(JPVerbLearnerContext context)
+    public static async Task SeedAsync(ExempleContexte context)
    {
       if (!context.ClassExample.Any())
       {

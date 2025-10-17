@@ -3,26 +3,22 @@ using api.models;
 
 namespace api.Data
 {
-    public class JPVerbLearnerContext : DbContext
+    public class ExempleContexte : DbContext
     {
-        public JPVerbLearnerContext(){}
+        public ExempleContexte(){}
         
-        public JPVerbLearnerContext(DbContextOptions<JPVerbLearnerContext> options) : base(options)
+        public ExempleContexte(DbContextOptions<ExempleContexte> options) : base(options)
         {
         }
 
-        public DbSet<Verb> Verbs { get; set; }
+        public DbSet<ClassExemple> EntitiesExemples { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Verb>().ToTable("Verb");
+            modelBuilder.Entity<ClassExemple>().ToTable("ClassExemple");
 
-            modelBuilder.Entity<Verb>()
-                .Property(v => v.VerbGroup)
-                .HasConversion<string>();
-
-            modelBuilder.Entity<Verb>()
-                .Property(v => v.JlptLevel)
+            modelBuilder.Entity<ClassExemple>()
+                .Property(v => v.ID)
                 .HasConversion<string>();
             
             base.OnModelCreating(modelBuilder);
